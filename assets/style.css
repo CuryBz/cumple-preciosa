@@ -1,0 +1,66 @@
+
+body {
+    margin: 0;
+    background: black;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    overflow-x: hidden;
+}
+
+audio {
+    display: none;
+}
+
+.content {
+    padding: 50px;
+}
+
+section {
+    max-width: 600px;
+    margin: 100px auto;
+    font-size: 1.5em;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s forwards;
+    animation-delay: calc(var(--i) * 0.5s);
+}
+
+section:nth-child(1) { --i: 1; }
+section:nth-child(2) { --i: 2; }
+section:nth-child(3) { --i: 3; }
+section:nth-child(4) { --i: 4; }
+section:nth-child(5) { --i: 5; }
+section:nth-child(6) { --i: 6; }
+section:nth-child(7) { --i: 7; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Corazones animados */
+.hearts::before, .hearts::after {
+    content: "❤";
+    position: fixed;
+    animation: floatHearts 10s linear infinite;
+    font-size: 24px;
+    color: red;
+}
+
+@keyframes floatHearts {
+    0% {
+        top: 100%;
+        left: 50%;
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        top: -10%;
+        left: 55%;
+        opacity: 0;
+    }
+}
